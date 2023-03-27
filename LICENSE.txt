@@ -1,0 +1,17 @@
+Pod::Spec.new do |spec|
+  spec.name         = 'ZonkaFeedbackSDK'
+  spec.version      = '1.0'
+  spec.license      = { :type => "MIT", :file => "LICENSE.txt" }
+  spec.summary      = 'ZonkaFeedbackSDK is a simple and easy to use SDK to collect user responses with in an iOS application'
+  spec.homepage     = 'https://zonkafeedback.com/'
+  spec.author       = 'Peeka Sharma'
+  spec.source =  { :git => 'https://gitlab.com/lekka/lekka-link-ios.git', :tag => '1.0' }
+  spec.requires_arc = true
+  spec.static_framework = false
+  spec.ios.deployment_target = '12.0'
+  spec.swift_version = "5"
+  spec.xcconfig = { 'BUILD_LIBRARY_FOR_DISTRIBUTION' => 'YES' }
+  spec.source_files = 'ZonkaFeedbackSDK/ZonkaFeedbackSDK/**/*.{swift}'
+  spec.preserve_paths = 'ZonkaFeedbackSDK/ZonkaFeedbackSDK/*'
+  spec.resources = 'ZonkaFeedbackSDK/ZonkaFeedbackSDK/Resources/*.{png}'
+end
