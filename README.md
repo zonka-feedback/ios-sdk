@@ -1,4 +1,4 @@
-# Zonka Survey iOS SDK
+# Zonka Feedback iOS SDK
 
 iOS SDK enables you to collect feedback from your iOS App on iPhone and iPad. 
 
