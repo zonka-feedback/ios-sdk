@@ -46,6 +46,7 @@ pod install
 ### Adding framework directly[](#adding-framework-directly)
 
 If you do not want to install manually then you can directly add ZonkaFeedback.framework to your Xcode project.
+[Download Framework](https://zonkafeedback.com/hubfs/ZonkaFeedback.zip)
 
 ### Setup[](#setup)
 
