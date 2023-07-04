@@ -22,21 +22,25 @@ import Network
         self.view.backgroundColor = UIColor.clear
         var deviceQueryString: String?
         let surveyView = ZFSurveyView()
-        
+        let className = self.view.superview?.parentViewController?.className
         if sendDeviceDetails == true
         {
             let varObj = ZFDeviceDetails()
             deviceQueryString = varObj.getDeviceDetails()
+            deviceQueryString =  String(format: "%@&zf_sdk_screen=%@",deviceQueryString!, className!)
             surveyView.deviceDetailsQueryString = deviceQueryString
         }
         if sendCustomAttributes.count > 0
         {
             surveyView.attributesQueryString  = sendCustomAttributes.queryString
         }
-        let userInfo = UserDefaults.standard.object(forKey: "userInfo") as! NSDictionary
-        if userInfo.count > 0
+        if (UserDefaults.standard.object(forKey: "userInfo") != nil)
         {
-            surveyView.userInfoQueryString = userInfo.queryString
+            let userInfo = UserDefaults.standard.object(forKey: "userInfo") as! NSDictionary
+            if userInfo.count > 0
+            {
+                surveyView.userInfoQueryString = userInfo.queryString
+            }
         }
         if token != ""
         {
@@ -128,5 +132,25 @@ extension NSDictionary {
         return output
     }
 }
-
-
+extension NSObject {
+    var className: String {
+        return String(describing: type(of: self))
+    }
+    
+    class var className: String {
+        return String(describing: self)
+    }
+}
+extension UIView {
+    var parentViewController: UIViewController? {
+        // Starts from next (As we know self is not a UIViewController).
+        var parentResponder: UIResponder? = self.next
+        while parentResponder != nil {
+            if let viewController = parentResponder as? UIViewController {
+                return viewController
+            }
+            parentResponder = parentResponder?.next
+        }
+        return nil
+    }
+}

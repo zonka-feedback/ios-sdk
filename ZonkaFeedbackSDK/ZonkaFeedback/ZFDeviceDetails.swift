@@ -17,8 +17,6 @@ import SystemConfiguration
     public var zf_sdk_device_IMEI: String?
     public var zf_sdk_version: String?
     public var zf_sdk_timezone: String?
-    public var zf_sdk_is_charger_plugged_in: String?
-    public var zf_sdk_battery_level: String?
     public var zf_sdk_app_version_code: String?
     public var zf_sdk_HiddenDict: NSMutableDictionary?
     
@@ -48,15 +46,6 @@ import SystemConfiguration
         zf_sdk_app_version_code =  Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
         zf_sdk_timezone = TimeZone.current.identifier
         UIDevice.current.isBatteryMonitoringEnabled = true
-        if UIDevice.current.batteryState == UIDevice.BatteryState.charging
-        {
-            zf_sdk_is_charger_plugged_in  = "1"
-        }
-        else
-        {
-            zf_sdk_is_charger_plugged_in  = "0"
-        }
-        zf_sdk_battery_level = "10" // String(format: "%.01f",UIDevice.current.batteryLevel)
         
         let dateFormatter : DateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone(identifier: "UTC")

@@ -46,7 +46,7 @@ class ValidateToken: NSObject
                     if dict.value(forKey: "success") as!Bool == true
                     {
                         let data = dict.value(forKey: "data") as! NSDictionary
-                        if data.value(forKey: "companyInfo") is NSDictionary
+                        if data.value(forKey: "distributionInfo") is NSDictionary
                         {
                             let companyInfo = data.value(forKey: "distributionInfo") as! NSDictionary
                             UserDefaults.standard.set(companyInfo.value(forKey: "isWidgetActive"), forKey: "ValidationStatus")
