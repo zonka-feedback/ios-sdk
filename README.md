@@ -49,8 +49,8 @@ If you do not want to install manually then you can directly add ZonkaFeedback.f
 [Download Framework](https://zonkafeedback.com/hubfs/ZonkaFeedback.zip)
 
 Once downloaded, follow these steps:
-1.Drag ZonkaFeedback.framework into your project. Make sure "Copy items if needed" is selected and click Finish.
-2.In the target settings for your app, set the ZonkaFeedback.framework to “Embed & Sign”. You'll find it in the “Frameworks, Libraries, and Embedded Content” section of the “General” tab.
+* Drag ZonkaFeedback.framework into your project. Make sure "Copy items if needed" is selected and click Finish.
+* In the target settings for your app, set the ZonkaFeedback.framework to “Embed & Sign”. You'll find it in the “Frameworks, Libraries, and Embedded Content” section of the “General” tab.
 
 ### Setup[](#setup)
 
