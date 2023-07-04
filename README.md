@@ -48,6 +48,10 @@ pod install
 If you do not want to install manually then you can directly add ZonkaFeedback.framework to your Xcode project.
 [Download Framework](https://zonkafeedback.com/hubfs/ZonkaFeedback.zip)
 
+Once downloaded, follow these steps:
+1.Drag ZonkaFeedback.framework into your project. Make sure "Copy items if needed" is selected and click Finish.
+2.In the target settings for your app, set the ZonkaFeedback.framework to “Embed & Sign”. You'll find it in the “Frameworks, Libraries, and Embedded Content” section of the “General” tab.
+
 ### Setup[](#setup)
 
 Create an In-App SDK token for the required survey from Distribute menu and use that to initialize the survey using the SDK
