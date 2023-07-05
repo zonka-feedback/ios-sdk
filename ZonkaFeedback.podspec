@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = 'ZonkaFeedback'
-  spec.version      = '1.0'
+  spec.version      = '1.1'
   spec.license      = { :type => "MIT", :file => "LICENSE.txt" }
   spec.summary      = 'ZonkaFeedback SDK is a simple and easy to use SDK to collect user responses with in an iOS application'
   spec.homepage     = 'https://zonkafeedback.com/'
