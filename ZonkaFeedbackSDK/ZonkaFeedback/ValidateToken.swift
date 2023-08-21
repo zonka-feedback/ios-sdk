@@ -54,7 +54,21 @@ class ValidateToken: NSObject
                             {
                                 UserDefaults.standard.set(companyInfo.value(forKey: "companyId"), forKey: "companyId")
                             }
-                            
+                            if companyInfo.value(forKey: "embedSettings") is NSDictionary
+                            {
+                                let segmentSettings = companyInfo.value(forKey: "embedSettings") as! NSDictionary
+                                if segmentSettings.value(forKey: "includeSegment") is NSDictionary
+                                {
+                                    let includeSegment = segmentSettings.value(forKey: "includeSegment") as! NSDictionary
+                                    UserDefaults.standard.set(includeSegment, forKey: "includeSegment")
+                                }
+                                if segmentSettings.value(forKey: "excludeSegment") is NSDictionary
+                                {
+                                    let excludeSegment = segmentSettings.value(forKey: "excludeSegment") as! NSDictionary
+                                    UserDefaults.standard.set(excludeSegment, forKey: "excludeSegment")
+                                }
+                            }
+                          
                         }
                     }
                     else

@@ -7,6 +7,7 @@ import QuartzCore
     
   // MARK: Properties
   private var domainUrl = "http://us1.zonka.co/"
+    //private var domainUrl = "http://s.zf1.zonkaplatform.com/"
   private var webView: WKWebView = WKWebView()
   private var baseView: UIView = UIView()
   private var closeButton: UIButton = UIButton()

@@ -60,6 +60,9 @@ import UIKit
          UserDefaults.standard.removeObject(forKey: "contact_mobile")
          UserDefaults.standard.removeObject(forKey: "contact_name")
          UserDefaults.standard.removeObject(forKey: "userInfo")
+         UserDefaults.standard.removeObject(forKey: "segmentList")
+         UserDefaults.standard.removeObject(forKey: "includeSegment")
+         UserDefaults.standard.removeObject(forKey: "excludeSegment")
          UserDefaults.standard.synchronize()
          
          let UTCDate = Date()
@@ -171,11 +174,16 @@ import UIKit
                     if dict.value(forKey: "success") as!Bool == true
                     {
                         let data = dict.value(forKey: "data") as! NSDictionary
-                        
+
                         if data.value(forKey: "contactInfo") is NSDictionary
                         {
                             let contactInfo = data.value(forKey: "contactInfo") as! NSDictionary
                             UserDefaults.standard.set(contactInfo.value(forKey: "_id"), forKey: "contactId")
+                            if let segmentList : NSArray = contactInfo.value(forKey: "lists") as? NSArray
+                            {
+                                UserDefaults.standard.set(segmentList, forKey: "segmentList")
+                            }
+                            
                         }
                         else
                         {
@@ -185,8 +193,11 @@ import UIKit
                                 UserDefaults.standard.set(evdInfo.value(forKey: "_id"), forKey: "anonymousVisitorId")
                             }
                         }
-                        
+
+
                     }
+                  
+                   
 
                 }
             }

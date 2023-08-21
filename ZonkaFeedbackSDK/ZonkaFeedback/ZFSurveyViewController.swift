@@ -74,10 +74,58 @@ import Network
             
             let validObj = ValidateToken()
             validObj.validateToken(token: self.token as NSString);
-            
+            var showSurvey = true
+            if (UserDefaults.standard.value(forKey: "includeSegment") != nil)
+            {
+                let includeSegment = UserDefaults.standard.value(forKey: "includeSegment") as! NSDictionary
+                let list = includeSegment.value(forKey: "list") as! NSArray
+                if list.count > 0
+                {
+                    showSurvey = false
+                    if (UserDefaults.standard.value(forKey: "segmentList") != nil)
+                    {
+                        let segmentList = UserDefaults.standard.value(forKey: "segmentList") as! NSArray
+                        if segmentList.count > 0
+                        {
+                            for i in 0..<segmentList.count
+                            {
+                                if list.contains(segmentList[i])
+                                {
+                                    showSurvey = true
+                                    break
+                                }
+                            }
+                
+                        }
+                    }
+                }
+            }
+            if (UserDefaults.standard.value(forKey: "excludeSegment") != nil)
+            {
+                let excludeSegment = UserDefaults.standard.value(forKey: "excludeSegment") as! NSDictionary
+                let list = excludeSegment.value(forKey: "list") as! NSArray
+                if list.count > 0
+                {
+                    if (UserDefaults.standard.value(forKey: "segmentList") != nil)
+                    {
+                        let segmentList = UserDefaults.standard.value(forKey: "segmentList") as! NSArray
+                        if segmentList.count > 0
+                        {
+                            for i in 0..<segmentList.count
+                            {
+                                if list.contains(segmentList[i])
+                                {
+                                    showSurvey = false
+                                    break
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             DispatchQueue.main.async
             {
-                if UserDefaults.standard.bool(forKey: "ValidationStatus") == true
+                if showSurvey && UserDefaults.standard.bool(forKey: "ValidationStatus") == true
                 {
                     self.addSurvey()
                 }
